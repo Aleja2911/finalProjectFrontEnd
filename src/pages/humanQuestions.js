@@ -50,7 +50,7 @@ const HumanQuestions = ({ scientists } ) => {
             <Grid>
               <AnimatedCardHuman scientists={scientists} />
             </Grid>
-            <Grid>
+            <Grid className={classes.root}>
              <HumanQuestionsText />
             </Grid>
             <Grid>

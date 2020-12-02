@@ -196,7 +196,7 @@ useEffect(() => {
       
         path="/questions"
         render={(props) => (
-          <Questions {...props}/>
+          <Questions scientistQuestions={scientistQuestions} questions={questions} {...props}/>
         )}
       />
 
@@ -208,7 +208,7 @@ useEffect(() => {
       )}
     />
 
-     <Route  
+      <Route  
       path="/humanquestions"
       render={(props) => (
         <HumanQuestions scientists={scientists}  {...props}/>

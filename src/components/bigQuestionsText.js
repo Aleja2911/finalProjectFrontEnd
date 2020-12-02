@@ -8,8 +8,8 @@ const BigQuestionsText = () => {
     return ( 
 
         <Trail  open={open} onClick={() => set((state) => !state)}>
-            <h1> from big questions such as: </h1> 
-            <h1> what is the universe made of? </h1>
+            <h1> from big questions: </h1> 
+            <h1> what is the size of the universe? </h1>
             
         </Trail>
     );
