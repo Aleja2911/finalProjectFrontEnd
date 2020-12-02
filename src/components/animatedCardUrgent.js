@@ -36,8 +36,8 @@ const AnimatedCardUrgent = ({ scientists }) => {
                 onMouseLeave={() => set({ xys: [0, 0, 1] })}
                 style={{ transform: props.xys.interpolate(trans) }}>
                 <Card className={classes.root}>
-                    <img className={classes.media} src={scientists[2].picture} alt="sara seager"/>
-                    <h2> {scientists[2].first_name}  {scientists[2].last_name}  - {scientists[2].area_expertise} </h2>
+                    <img className={classes.media} src={scientists[47].picture} alt=""/>
+                    <h2> {scientists[47].first_name}  {scientists[47].last_name}  <br/> {scientists[47].area_expertise} </h2>
                 </Card>
 
                 </animated.div>

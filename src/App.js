@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import { Switch, Route } from "react-router-dom";
 import Particles from 'react-particles-js';
@@ -24,59 +24,53 @@ const useStyles = makeStyles(theme=> ({
 }))
 
 const App = () => {
-  const scientists = [
-    {
-      "id": 1,
-      "first_name": "Eugenie",
-      "last_name": "Clark",
-      "area_expertise": "Ichthyologist",
-      "field": [
-        "Biology"
-      ],
-      "issue_tackled": [
-        "Environmental preservation"
-      ],
-      "wiki_link": "https://en.wikipedia.org/wiki/Eugenie_Clark",
-      "picture": "http://www.alertdiver.com/cdn/13649.jpg",
-      "short_description": null
-    },
-    {
-      "id": 2,
-      "first_name": "Susan",
-      "last_name": "Solomon",
-      "area_expertise": "Atmospheric Chemist",
-      "field": [
-        "Chemistry"
-      ],
-      "issue_tackled": [
-        "Environmental preservation",
-        "Chemistry"
-      ],
-      "wiki_link": "https://en.wikipedia.org/wiki/Susan_Solomon",
-      "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Susan_Solomon-Desk_With_Globe.jpg/1024px-Susan_Solomon-Desk_With_Globe.jpg",
-      "short_description": null
-    },
-    {
-      "id": 11,
-      "first_name": "Lydia",
-      "last_name": "Villa-Komaroff",
-      "area_expertise": "Molecular Biology",
-      "field": [
-        "Biology"
-      ],
-      "issue_tackled": [
-        "Materials development"
-      ],
-      "wiki_link": "https://en.wikipedia.org/wiki/Lydia_Villa-Komaroff",
-      "picture": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Lydia_Villa-Komaroff-2.jpg/220px-Lydia_Villa-Komaroff-2.jpg",
-      "short_description": null
-    },
-  ];
-  const classes = useStyles()
+  const classes = useStyles();
+
+  const [scientists, setScientists] =  useState([]);
+  const [questions, setQuestions] = useState([]);
+  const [programs, setPrograms] = useState([]);
+  const [scientistQuestions, setScientistQuestions] = useState([]);
+  const [scientistPrograms, setScientistPrograms] = useState([]);
+  
+  useEffect(() => {
+    fetch("https://find-your-science.herokuapp.com/scientists")
+        .then((res) => res.json())
+        .then((data) => setScientists(data))
+        .catch((error) => console.log(error.message));
+  }, []);
+
+useEffect(() => {
+  fetch("https://find-your-science.herokuapp.com/questions")
+      .then((res) => res.json())
+      .then((data) => setQuestions(data))
+      .catch((error) => console.log(error.message));
+}, []);
+
+useEffect(() => {
+  fetch("https://find-your-science.herokuapp.com/uniprograms")
+      .then((res) => res.json())
+      .then((data) => setPrograms(data))
+      .catch((error) =>  console.log(error.message))
+}, []);
+
+useEffect(()=> {
+  fetch("https://find-your-science.herokuapp.com/questions/scientists")
+      .then((res) => res.json())
+      .then((data) => setScientistQuestions(data))
+      .catch((error) => console.log(error.message))
+}, []);
+
+useEffect(() => {
+  fetch("https://find-your-science.herokuapp.com/scientists/programs")
+      .then((res) => res.json())
+      .then((data) => setScientistPrograms(data))
+      .catch((error) => console.log(error.message))
+}, []);
+  console.log(scientistPrograms)
 
   return (
     <div className="App">
-     <Particles  canvas className={classes.particlesCanva} params={{
+      <Particles  canvas className={classes.particlesCanva} params={{
         particles: {
           number: {
             value: 100,
@@ -187,11 +181,9 @@ const App = () => {
           background_size: "cover"
         }
       }}   
-         
-        
         /> 
     <main>
-   
+
       <Switch>
       <Route
       
@@ -216,22 +208,20 @@ const App = () => {
       )}
     />
 
-     <Route
-      
+     <Route  
       path="/humanquestions"
       render={(props) => (
         <HumanQuestions scientists={scientists}  {...props}/>
       )}
-    />
+    />  
     <Route
-      
       path="/urgentquestions"
       render={(props) => (
         <UrgentQuestions scientists={scientists} {...props}/>
       )}
     />
+
     <Route
-      
         path="/smallquestions"
         render={(props) => (
           <SmallQuestions scientists={scientists} {...props}/>
@@ -240,7 +230,6 @@ const App = () => {
 
 
       <Route
-      
         path="/bigquestions"
         render={(props) => (
           <BigQuestions scientists={scientists} {...props}/>

@@ -36,8 +36,8 @@ const AnimatedCardHuman = ({ scientists }) => {
                 onMouseLeave={() => set({ xys: [0, 0, 1] })}
                 style={{ transform: props.xys.interpolate(trans) }}>
                 <Card className={classes.root}>
-                    <img className={classes.media} src={scientists[0].picture} alt="sara seager"/>
-                    <h2> {scientists[0].first_name}  {scientists[0].last_name}  - {scientists[0].area_expertise} </h2>
+                    <img className={classes.media} src={scientists[19].picture} alt="sara seager"/>
+                    <h2> {scientists[19].first_name}  {scientists[19].last_name}  - {scientists[19].area_expertise} </h2>
                 </Card>
 
                 </animated.div>
