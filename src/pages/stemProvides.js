@@ -1,11 +1,25 @@
 import React from 'react';
 import { useHistory } from "react-router-dom";
 
+import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles({
+     button: {
+       color: "white",
+       margin: 50,
+     },
+     text: {
+       padding: 30,
+       margin: 50,
+     }
+});
 
 const StemProvides = () => {
     const history = useHistory();
+    const classes = useStyles();
 
     const handleClick=(e)=>{
         let path = `/questions`;
@@ -19,18 +33,27 @@ const StemProvides = () => {
         console.log("it works")
       }
     return ( 
-        <div>
-            <p> STEM can provide you 
-                with the tools to find 
-                an answer to these and other 
-                questions. 
-                find your STEM and get to know some 
-                of the women who have contributed to 
-                these fields ...
-            </p>
-            <Button onClick={handleClick}> Continue </Button>
-            <Button onClick={handleReturn}> Return </Button>
-        </div>
+        <Grid>
+          <Grid>
+          <Button className={classes.button} onClick={handleReturn}> Return </Button>
+          </Grid>
+          <Grid className={classes.text}>
+              <h3> 
+          
+                  STEM can provide you 
+                  with the tools to find 
+                  an answer to these and other 
+                  questions. 
+                  Get to know some 
+                  of the women who have contributed to 
+                  STEM fields, get inspired and Find Your Science
+
+              </h3>
+            </Grid>
+            <Grid>
+              <Button className={classes.button} onClick={handleClick}> Continue </Button>
+            </Grid>
+        </Grid>
      );
 }
  
