@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+import './smallQuestions.css';
+
 import Button from '@material-ui/core/Button';
 import { useHistory } from "react-router-dom";
 import Grid from '@material-ui/core/Grid';
@@ -16,7 +18,6 @@ const useStyles = makeStyles({
   },
   button: {
     padding: 30,
-    paddingTop: 220,
     color: "white",
   },
   media: {
@@ -24,7 +25,6 @@ const useStyles = makeStyles({
   },
   text: {
     padding: 30,
-    paddingTop: 80,
   }
 });
 
@@ -45,7 +45,7 @@ const SmallQuestions = ({ scientists }) => {
       }
     return ( 
         <Grid container direction="row" className="smallQuestions">
-          <Grid >
+          <Grid>
             <Button className={classes.button} onClick={handleReturn}> Return </Button>
           </Grid>
 
@@ -62,7 +62,7 @@ const SmallQuestions = ({ scientists }) => {
         </Grid>
      );
 }
- 
+
 export default SmallQuestions;
 
 // direction="column" 

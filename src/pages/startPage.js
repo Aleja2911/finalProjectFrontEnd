@@ -26,13 +26,13 @@ const handleClick=(e)=>{
   console.log("it works")
 }
     return ( 
-        <div className="startPage">
+        <Grid container direction="column" className="startPage">
           
             <h1 className={classes.text}> Find Your Science </h1>
            
             <Button className={classes.button} onClick={handleClick}> Click to Start </Button>
            
-        </div>
+        </Grid>
 
      );
 }

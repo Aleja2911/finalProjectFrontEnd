@@ -1,8 +1,12 @@
 import React from 'react';
+import './humanQuestions.css';
 import { useHistory } from "react-router-dom";
 
 import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
+
 import AnimatedCardHuman from '../components/animatedCardHuman';
+import HumanQuestionsText from '../components/humanQuestionsText';
 
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -12,11 +16,15 @@ const useStyles = makeStyles({
     padding: 2,
   },
   button: {
+    padding: 30,
     color: "white",
   },
   media: {
     height: 400,
   },
+  text: {
+    padding: 30,
+  }
 });
 
 const HumanQuestions = ({ scientists } ) => {
@@ -35,16 +43,20 @@ const HumanQuestions = ({ scientists } ) => {
       }
    
     return ( 
-        <div>
-            <Button className={classes.button} onClick={handleReturn}> Return </Button>
-            Human Questions:
-            Virginia H. Holsinger
-            Chemistry and Food Scientist
-           
-            <AnimatedCardHuman scientists={scientists} />
-            <Button className={classes.button} onClick={handleClick}> Continue </Button>
-            
-        </div>
+      <Grid container direction="row" className="humanQuestions">
+            <Grid>
+              <Button className={classes.button} onClick={handleReturn}> Return </Button>
+            </Grid>   
+            <Grid>
+              <AnimatedCardHuman scientists={scientists} />
+            </Grid>
+            <Grid>
+             <HumanQuestionsText />
+            </Grid>
+            <Grid>
+              <Button className={classes.button} onClick={handleClick}> Continue </Button>
+            </Grid>
+        </Grid>
      );
 }
  
