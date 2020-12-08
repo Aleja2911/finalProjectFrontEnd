@@ -39,11 +39,10 @@ const StemProvides = () => {
           </Grid>
           <Grid className={classes.text}>
               <h3> 
-          
-                  STEM can provide you 
-                  with the tools to find 
-                  an answer to these and other 
-                  questions. 
+                  Throughtout history women have been essential to
+                  answer
+                  questions that have, and are shaping, our civilization. 
+                  And for most that time, they have been snubbed by history books.
                   Get to know some 
                   of the women who have contributed to 
                   STEM fields, get inspired and Find Your Science

@@ -2,7 +2,7 @@
 
 
 .startPage{
-  background-image: url(../Images/starnight.png);
+  /* background-image: url(../Images/starnight.png); */
   display: flex;
   color: white;
   justify-content: center;

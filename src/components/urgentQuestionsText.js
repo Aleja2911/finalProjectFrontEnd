@@ -8,9 +8,9 @@ const UrgentQuestionsText = () => {
     return ( 
 
         <Trail  open={open} onClick={() => set((state) => !state)}>
-            <h1> to urgent ones: </h1> 
-            <h1> something something urgent is urgent?  </h1>
-            {/* <h1> is there anything smaller than a Quark in the universe? </h1> */}
+            <h1> From urgent questions: </h1> 
+            <h1> how can we create renewable fuels to fight climate change?  </h1>
+            
             
         </Trail>
     );
