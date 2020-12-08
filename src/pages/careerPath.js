@@ -25,7 +25,12 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     button: {
-        color: "purple"
+        color: "purple",
+        background: "none",
+        "&:hover": {
+          background: "#CD9C22",
+        },
+        marginLeft: 55,
     },
     heading: {
         display: 'flex',
@@ -44,6 +49,10 @@ const useStyles = makeStyles((theme) => ({
     accordion: {
         margin: 10,
     },
+    text: {
+        
+        marginLeft: 40,
+    }
     }));
 
     const CareerPath = ({
@@ -65,11 +74,11 @@ const useStyles = makeStyles((theme) => ({
 
     const [page, setPage] = useState(1)
     
-    const handleReturn = (e) => {
-        let path = `/resultsPage`;
-        history.push(path);
-        console.log("it works");
-    };
+    // const handleReturn = (e) => {
+    //     let path = `/resultsPage`;
+    //     history.push(path);
+    //     console.log("it works");
+    // };
 
     const filteredScientistPrograms = scientistPrograms && scientistPrograms.filter((sp) => sp.scientist_id === selectedScientist.scientist_id)
 
@@ -105,20 +114,21 @@ const useStyles = makeStyles((theme) => ({
                             </Typography>
                         </AccordionSummary>
                         <AccordionDetails>
-                            <Typography>
+                            <Typography className={classes.text}>
                             <p> Duration: {sp.duration} </p>
                             <p> Location: {sp.city}, {sp.country} </p>
-                            
-                            <Button
-                                className={classes.button}
-                                onClick={() => {
-                                handleProgramClick(sp);
-                                }}
-                                
-                            >
-                                Visit Program Site
-                            </Button>
                             </Typography>
+                            
+                                <Button 
+                                    className={classes.button}
+                                    onClick={() => {
+                                    handleProgramClick(sp);
+                                    }}
+                                    
+                                >
+                                    Visit Program Site
+                                </Button>
+                            
                         </AccordionDetails>
                         </Accordion>
                     </Grid>

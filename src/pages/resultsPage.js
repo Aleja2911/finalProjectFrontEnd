@@ -23,6 +23,14 @@ const useStyles = makeStyles({
   button: {
     color: "white",
   },
+  ul: {
+    display: 'flex',
+    justifyContent: 'center',
+    
+    "& .MuiPaginationItem-root": {
+      color: "#ffffff",
+    },
+},
   media: {
     height: 200,
   },
@@ -45,7 +53,7 @@ const ResultsPage = ({
 }) => {
   const history = useHistory();
   const classes = useStyles();
-  
+
   
   const handleClickOpen = (sq) => {
     setselectedScientist(sq);
@@ -71,7 +79,13 @@ const ResultsPage = ({
 
   //-- pagination
   const [page, setPage ] = useState(1)
+  
+  const filteredScientists = scientistQuestions && scientistQuestions.filter((sq) => sq.question_id === selectedQuestion);
 
+  const handlePagination = scientist => {
+    const slicedscientist = scientist.slice(page === 1 ? 0 : (page - 1) * 10, page === 1 ? 10 : ((page - 1) * 10) + 10)
+    return slicedscientist
+  }
   // const handlePagination = scientistQuestions => {
   //   const slicedscientistQuestions = scientistQuestions.slice(page === 1 ? 0 : (page - 1) * 10, page === 1 ? 10 : ((page - 1) * 10) + 10)
   //   return slicedscientistQuestions
@@ -86,14 +100,12 @@ const ResultsPage = ({
   return (
     <Grid>
       <NavBar />
-<div    style={{marginTop: '250px'}}>
+<div    style={{marginTop: '240px'}}>
       
       <h1> Meet the Women </h1>
-
+      <Pagination classes={{ ul: classes.ul }} count={Math.floor(filteredScientists.length / 10)} color="primary" onChange={(e,p) => setPage(p)} /> 
       <Grid container direction="row" justify="center" alignItems="center" className={classes.grid} >
-        {scientistQuestions &&
-          scientistQuestions
-            .filter((sq) => sq.question_id === selectedQuestion)
+        {filteredScientists && handlePagination(filteredScientists)
             .map((sq, i) => {
               return (
                 <Fragment   key={i}>
@@ -128,8 +140,9 @@ const ResultsPage = ({
                             src={selectedScientist.picture}
                             alt="scientist woman working"
                           />
-                          some short description about the scientitst should go
-                          here
+                         <p> {selectedScientist.last_name} {selectedScientist.short_description} </p> 
+                          
+                  
                         </DialogContentText>
                       </DialogContent>
                       <DialogActions>
@@ -152,7 +165,7 @@ const ResultsPage = ({
                 </Fragment>
               );
             })}
-            
+              
       </Grid>
       </div>
     </Grid>

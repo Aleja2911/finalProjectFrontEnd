@@ -47,40 +47,38 @@ const App = () => {
   const [expanded, setExpanded] = useState(false);
   const [selectedProgram, setselectedProgram] = useState(null);
 
-  //Pagination
-  // const [currentPage, setCurrentPage ] = useState(1);
-  // const [scientistsPerPage] = useState(4);
+ 
 
   useEffect(() => {
-    fetch("https://find-your-science.herokuapp.com/scientists")
+    fetch("/api/scientists")
       .then((res) => res.json())
       .then((data) => setScientists(data))
       .catch((error) => console.log(error.message));
   }, []);
 
   useEffect(() => {
-    fetch("https://find-your-science.herokuapp.com/questions")
+    fetch("/api/questions")
       .then((res) => res.json())
       .then((data) => setQuestions(data))
       .catch((error) => console.log(error.message));
   }, []);
 
   useEffect(() => {
-    fetch("https://find-your-science.herokuapp.com/uniprograms")
+    fetch("/api/uniprograms")
       .then((res) => res.json())
       .then((data) => setPrograms(data))
       .catch((error) => console.log(error.message));
   }, []);
 
   useEffect(() => {
-    fetch("https://find-your-science.herokuapp.com/questions/scientists")
+    fetch("/api/questions/scientists")
       .then((res) => res.json())
       .then((data) => setScientistQuestions(data))
       .catch((error) => console.log(error.message));
   }, []);
 
   useEffect(() => {
-    fetch("https://find-your-science.herokuapp.com/scientists/programs")
+    fetch("/api/scientists/programs")
       .then((res) => res.json())
       .then((data) => setScientistPrograms(data))
       .catch((error) => console.log(error.message));

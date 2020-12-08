@@ -55,12 +55,12 @@ const Questions = ({ questions, scientistQuestions, setselectedQuestion }) => {
 
       {questions &&
         questions.map((question, index) => (
-          <Grid className={classes.questionsList}>
+          <Grid key={index} className={classes.questionsList}>
             <Button
               color="primary"
               variant="outlined"
               className={classes.button}
-              key={question.index}
+              
               onClick={() => handleClick(question)}
             >
               <Typography  className={classes.typography}>
