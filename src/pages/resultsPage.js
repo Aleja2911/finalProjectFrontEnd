@@ -7,7 +7,7 @@ import Pagination from '@material-ui/lab/Pagination';
 
 import AnimatedCardResults from "../components/animatedCardResults";
 import NavBar from "../components/navBar";
-import Footer from "../components/footer"
+import Footer from "../components/footer";
 
 //----- pop up ----
 

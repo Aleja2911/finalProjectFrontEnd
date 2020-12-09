@@ -13,6 +13,8 @@ const useStyles = makeStyles((theme) => ({
     footerContainer: {
         background: "linear-gradient(45deg, #04053C 30%, #43156B 70%)",
         boxShadow: "0 3px 5px 2px",
+        top: 'auto',
+        bottom: 0,
        
     },
 
@@ -57,10 +59,10 @@ const history = useHistory();
           <Grid container spacing={1}>
             
          
-            <AppBar className={classes.footerContainer} position="static" >
+            <AppBar className={classes.footerContainer} position="fixed" >
         
             
-            <Toolbar>
+            <Toolbar >
             <Grid container
                 direction="row"
                 justify="center"

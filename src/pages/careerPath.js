@@ -9,8 +9,8 @@ import AccordionSummary from "@material-ui/core/AccordionSummary";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import Pagination from '@material-ui/lab/Pagination';
-
 import Footer from "../components/footer";
+
 import NavBar from "../components/navBar";
 
 const useStyles = makeStyles((theme) => ({
@@ -89,7 +89,7 @@ const useStyles = makeStyles((theme) => ({
       }
  
     return (
-        <Grid>
+        <Grid style={{ width: '100%' }}>
         <NavBar />
         <div    style={{marginTop: '180px'}}>
         <Grid direction="row"
@@ -156,7 +156,7 @@ const useStyles = makeStyles((theme) => ({
                 </Grid>
         </Grid>
         </div>
-        <Footer/>
+       <Footer />
         </Grid>
     );
     };
