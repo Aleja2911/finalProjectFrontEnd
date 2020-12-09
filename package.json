@@ -1,7 +1,7 @@
 {
   "name": "final_project_front_end",
   "version": "0.1.0",
-  "proxy": "https://find-your-science.herokuapp.com/",
+  "proxy": "https://find-your-science.herokuapp.com",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.1",

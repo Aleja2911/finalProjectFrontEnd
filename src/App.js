@@ -20,6 +20,7 @@ import UrgentQuestionsText from "./components/urgentQuestionsText";
 import HumanQuestionsText from "./components/humanQuestionsText";
 
 
+
 const useStyles = makeStyles((theme) => ({
   particlesCanva: {
     position: "absolute",
@@ -50,35 +51,35 @@ const App = () => {
  
 
   useEffect(() => {
-    fetch("/api/scientists")
+    fetch("/scientists")
       .then((res) => res.json())
       .then((data) => setScientists(data))
       .catch((error) => console.log(error.message));
   }, []);
 
   useEffect(() => {
-    fetch("/api/questions")
+    fetch("/questions")
       .then((res) => res.json())
       .then((data) => setQuestions(data))
       .catch((error) => console.log(error.message));
   }, []);
 
   useEffect(() => {
-    fetch("/api/uniprograms")
+    fetch("/uniprograms")
       .then((res) => res.json())
       .then((data) => setPrograms(data))
       .catch((error) => console.log(error.message));
   }, []);
 
   useEffect(() => {
-    fetch("/api/questions/scientists")
+    fetch("/questions/scientists")
       .then((res) => res.json())
       .then((data) => setScientistQuestions(data))
       .catch((error) => console.log(error.message));
   }, []);
 
   useEffect(() => {
-    fetch("/api/scientists/programs")
+    fetch("/scientists/programs")
       .then((res) => res.json())
       .then((data) => setScientistPrograms(data))
       .catch((error) => console.log(error.message));
@@ -157,7 +158,7 @@ const App = () => {
             detect_on: "canvas",
             events: {
               onhover: {
-                enable: true,
+                enable: false,
                 mode: "repulse",
               },
               onclick: {
@@ -202,7 +203,12 @@ const App = () => {
           },
         }}
       />
-      <Grid>
+      <Grid container
+  direction="row"
+  justify="center"
+  alignItems="center">
+        
+    
         <Switch>
           <Route path="/missingscientist" render={(props) => <MissingScientistsForm {...props} />} />
 

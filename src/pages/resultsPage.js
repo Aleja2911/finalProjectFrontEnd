@@ -7,6 +7,7 @@ import Pagination from '@material-ui/lab/Pagination';
 
 import AnimatedCardResults from "../components/animatedCardResults";
 import NavBar from "../components/navBar";
+import Footer from "../components/footer"
 
 //----- pop up ----
 
@@ -19,14 +20,13 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useTheme } from "@material-ui/core/styles";
 
 
+
 const useStyles = makeStyles({
   button: {
     color: "white",
   },
   ul: {
-    display: 'flex',
-    justifyContent: 'center',
-    
+    marginBottom: 50,
     "& .MuiPaginationItem-root": {
       color: "#ffffff",
     },
@@ -66,12 +66,14 @@ const ResultsPage = ({
   const handleWikiClick = (selectedScientist) => {
     let path = window.open(selectedScientist.wiki_link);
     history.push(path);
+    setOpen(false);
   };
 
   const handleUniPrograms = (e) => {
     setselectedPrograms(selectedScientist.id);
     let path = `/careerpath`;
     history.push(path);
+    setOpen(false);
   };
 
   const theme = useTheme();
@@ -86,25 +88,20 @@ const ResultsPage = ({
     const slicedscientist = scientist.slice(page === 1 ? 0 : (page - 1) * 10, page === 1 ? 10 : ((page - 1) * 10) + 10)
     return slicedscientist
   }
-  // const handlePagination = scientistQuestions => {
-  //   const slicedscientistQuestions = scientistQuestions.slice(page === 1 ? 0 : (page - 1) * 10, page === 1 ? 10 : ((page - 1) * 10) + 10)
-  //   return slicedscientistQuestions
-  // }
-
-// const indexOfLastScientist = currentPage * scientistsPerPage;
-// const indexOfFirstScientist = indexOfLastScientist - scientistsPerPage;
-// const currentScientists = scientistQuestions
-// .filter((sq) => sq.question_id === selectedQuestion)
-// .map((sq, i).slice(indexOfFirstScientist, indexOfLastScientist)
-
+  
   return (
-    <Grid>
+    <Grid style={{ width: '100%' }}>
       <NavBar />
-<div    style={{marginTop: '240px'}}>
-      
+<div style={{marginTop: '140px'}}>
+    <Grid container direction="row" justify="center" alignItems="center">
+      <Grid container
+  direction="row"
+  justify="center"
+  alignItems="center" item xs={12} >
       <h1> Meet the Women </h1>
-      <Pagination classes={{ ul: classes.ul }} count={Math.floor(filteredScientists.length / 10)} color="primary" onChange={(e,p) => setPage(p)} /> 
-      <Grid container direction="row" justify="center" alignItems="center" className={classes.grid} >
+      </Grid>
+      
+      <Grid container direction="row" justify="center" alignItems="center" className={classes.grid}>
         {filteredScientists && handlePagination(filteredScientists)
             .map((sq, i) => {
               return (
@@ -120,6 +117,7 @@ const ResultsPage = ({
                     />
                   
                   </Button>
+                  
                   {selectedScientist && (
                     <Dialog
                       fullScreen={fullScreen}
@@ -149,7 +147,7 @@ const ResultsPage = ({
                         <Button onClick={handleClose}>Close</Button>
                         <Button
                           onClick={() => handleWikiClick(selectedScientist)}
-                        >
+                          >
                           learn more about {selectedScientist.first_name}{" "}
                           {selectedScientist.last_name}
                         </Button>
@@ -165,9 +163,17 @@ const ResultsPage = ({
                 </Fragment>
               );
             })}
-              
+      
+         </Grid>    
+         <Grid container
+          direction="row"
+          justify="center"
+          alignItems="center" xs={12}>
+         <Pagination classes={{ ul: classes.ul }} count={Math.floor(filteredScientists.length / 10)} color="primary" onChange={(e,p) => setPage(p)} /> 
+         </Grid> 
       </Grid>
       </div>
+      <Footer/>
     </Grid>
   );
 };

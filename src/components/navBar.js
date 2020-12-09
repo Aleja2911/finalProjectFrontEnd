@@ -15,7 +15,11 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: "0 3px 5px 2px",
   },
   button: {
-    display: "flex",
+    width: 120,
+    height: 90,
+    margin: 2,
+    paddingTop: 20,
+    paddingBottom: 20,
     color: "white",
     background: "none",
     "&:hover": {
@@ -34,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 14,
   },
   returnResults: {
-    display: "flex",
+    
     color: "white",
   },
 }));
@@ -70,7 +74,7 @@ const NavBar = () => {
   return (
     <AppBar className={classes.bar}>
       <Toolbar>
-        <Grid container direction="row" justifyContent="flex-start">
+        <Grid>
           <Button
             className={classes.returnResults}
             onClick={handleReturnResults}
@@ -80,15 +84,15 @@ const NavBar = () => {
             </Typography>
           </Button>
         </Grid>
-        <Grid container direction="row" justifyContent="flex-end">
-         <Grid item xs={12} sm={3} md={2}>
+        <Grid container direction="row" justify="flex-end" alignItems="center" >
+         
           <Button variant="outlined" className={classes.button} onClick={handleReturn}>
            <Typography className={classes.typographyButton}>
             return to Questions
             </Typography>
           </Button>
-          </Grid>
-          <Grid item xs={12} sm={3} md={2}>
+          
+          
             <Button
               className={classes.button}
               variant="outlined"
@@ -98,9 +102,9 @@ const NavBar = () => {
                 About Us
               </Typography>
             </Button>
-          </Grid>
+          
 
-          <Grid item xs={12} sm={4} md={3}>
+          
             <Button
               className={classes.button}
               variant="outlined"
@@ -110,14 +114,13 @@ const NavBar = () => {
                 Missing a Scientists?
               </Typography>
             </Button>
-          </Grid>
-          <Grid item xs={12} sm={6} md={3}>
+          
             <Button className={classes.button} variant="outlined">
               <Typography className={classes.typographyButton}>
                 Missing a university program?
               </Typography>
             </Button>
-          </Grid>
+          
         </Grid>
       </Toolbar>
     </AppBar>

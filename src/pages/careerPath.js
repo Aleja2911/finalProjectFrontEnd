@@ -10,6 +10,7 @@ import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import Pagination from '@material-ui/lab/Pagination';
 
+import Footer from "../components/footer";
 import NavBar from "../components/navBar";
 
 const useStyles = makeStyles((theme) => ({
@@ -90,12 +91,24 @@ const useStyles = makeStyles((theme) => ({
     return (
         <Grid>
         <NavBar />
-        <Grid>
+        <div    style={{marginTop: '180px'}}>
+        <Grid direction="row"
+                        justify="center"
+                        alignItems="center">
+                        <h2>These University Programs match {selectedScientist.first_name} {selectedScientist.last_name}'s career </h2>
+         </Grid>
+        <Grid container
+  direction="row"
+  justify="center"
+  alignItems="center">
             {filteredScientistPrograms && handlePagination(filteredScientistPrograms)
                 .map((sp, i) => {
                 return (
                     <Fragment key={i}>
-                    <Grid >
+                   
+                    <Grid direction="row"
+                        justify="center"
+                        alignItems="center" xs={7}>
                         <Accordion
                         expanded={expanded === i}
                         onChange={handleChange(i)}
@@ -135,11 +148,18 @@ const useStyles = makeStyles((theme) => ({
                     </Fragment>
                 );
                 })}
+                <Grid container
+                        direction="row"
+                        justify="center"
+                        alignItems="center">
                 <Pagination classes={{ ul: classes.ul }} count={Math.floor(filteredScientistPrograms.length / 5)} color="primary" onChange={(e,p) => setPage(p)} />
+                </Grid>
         </Grid>
+        </div>
+        <Footer/>
         </Grid>
     );
     };
 
 export default CareerPath;
-//expandIcon={<ExpandMoreIcon />}
+

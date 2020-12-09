@@ -93,23 +93,23 @@ const MissingScientistsForm = () => {
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
-          <MenuItem value={field}>Chemistry</MenuItem>
-          <MenuItem value={field}>Biology</MenuItem>
-          <MenuItem value={field}>Physics</MenuItem>
-          <MenuItem value={field}> Astronomy </MenuItem>
-          <MenuItem value={field}>Mathematics</MenuItem>
-          <MenuItem value={field}>Engineering</MenuItem>
-          <MenuItem value={field}>Computer science</MenuItem>
-          <MenuItem value={field}>Neurobiology</MenuItem>
-          <MenuItem value={field}>Enviromental Science</MenuItem>
-          <MenuItem value={field}>Planetary Science</MenuItem>
-          <MenuItem value={field}>Materials Science</MenuItem>
-          <MenuItem value={field}>Medicine</MenuItem>
+            <MenuItem value="Chemistry">Chemistry</MenuItem>
+            <MenuItem value="Biology">Biology</MenuItem>
+            <MenuItem value="Physics">Physics</MenuItem>
+            <MenuItem value="Astronomy"> Astronomy </MenuItem>
+            <MenuItem value="Mathematics">Mathematics</MenuItem>
+            <MenuItem value="Engineering">Engineering</MenuItem>
+            <MenuItem value="Computer science">Computer science</MenuItem>
+            <MenuItem value="Neurobiology">Neurobiology</MenuItem>
+            <MenuItem value="Enviromental Science">Enviromental Science</MenuItem>
+            <MenuItem value="Planetary">Planetary Science</MenuItem>
+            <MenuItem value="Material Science">Materials Science</MenuItem>
+            <MenuItem value="Medicine">Medicine</MenuItem>
         </Select>
       </FormControl>
 
         </div>
-     );
+    );
 }
- 
+
 export default MissingScientistsForm;

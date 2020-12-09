@@ -11,13 +11,10 @@ import Grid from '@material-ui/core/Grid';
 import AnimatedCard from "../components/animatedCard";
 
 
+
 const useStyles = makeStyles({
     root: {
      flexGrow: 1,
-     
-    },
-    media: {
-      height: 440,
     },
     buttons:{
         padding: 30,
@@ -48,15 +45,16 @@ const IntroQuestions = ({ scientists, path, TextComponent, id, returnpath }) => 
         console.log("it works")
       }
     return (  
-        <Grid container direction="row" spacing={4} className="bigQuestions">
+        <Grid container className="bigQuestions">
           
             <Grid item xs={12} sm={6} md={3}>
                 <Button className={classes.buttons} onClick={() => handleReturn(returnpath)}> Return </Button>
             </Grid>
-             <Grid item xs={12} sm={6} md={3}>
+             <Grid item spacing={1} sm={6} md={3} >
+               
                 <AnimatedCard scientists={scientists} id={id} />
             </Grid>
-            <Grid item xs={12} sm={6} md={3} className={classes.text}>
+            <Grid item spacing={1} xs={12} sm={6} md={3} className={classes.text}>
                 <TextComponent />
             </Grid>
           
