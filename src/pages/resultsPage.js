@@ -90,9 +90,9 @@ const ResultsPage = ({
   }
   
   return (
-    <Grid>
+    <Grid style={{ width: '100%' }}>
       <NavBar />
-<div    style={{marginTop: '140px'}}>
+<div style={{marginTop: '140px'}}>
     <Grid container direction="row" justify="center" alignItems="center">
       <Grid container
   direction="row"

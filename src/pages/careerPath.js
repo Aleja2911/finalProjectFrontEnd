@@ -10,6 +10,7 @@ import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import Pagination from '@material-ui/lab/Pagination';
 
+import Footer from "../components/footer";
 import NavBar from "../components/navBar";
 
 const useStyles = makeStyles((theme) => ({
@@ -94,7 +95,7 @@ const useStyles = makeStyles((theme) => ({
         <Grid direction="row"
                         justify="center"
                         alignItems="center">
-                        <h2>This University Programs match {selectedScientist.first_name} {selectedScientist.last_name}'s career </h2>
+                        <h2>These University Programs match {selectedScientist.first_name} {selectedScientist.last_name}'s career </h2>
          </Grid>
         <Grid container
   direction="row"
@@ -155,6 +156,7 @@ const useStyles = makeStyles((theme) => ({
                 </Grid>
         </Grid>
         </div>
+        <Footer/>
         </Grid>
     );
     };
