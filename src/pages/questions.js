@@ -16,6 +16,7 @@ const useStyles = makeStyles({
     "&:hover": {
       background: "#CD9C22",
     },
+    width: 430,
   },
   typography: {
      fontFamily: "Playfair Display",
@@ -48,14 +49,14 @@ const Questions = ({ questions, scientistQuestions, setselectedQuestion }) => {
   };
 
   return (
-    <Grid container direction="column" className="questions">
-      <Grid className={classes.returnbutton}>
+    <Grid container  className="questions">
+      <Grid item xs={12} className={classes.returnbutton}>
         <h2> What Would You Like To Do Today? </h2>
       </Grid>
 
       {questions &&
         questions.map((question, index) => (
-          <Grid key={index} className={classes.questionsList}>
+          <Grid  item xs={12} sm={12} key={index} className={classes.questionsList}>
             <Button
               color="primary"
               variant="outlined"

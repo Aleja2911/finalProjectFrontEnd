@@ -33,16 +33,19 @@ const StemProvides = () => {
         console.log("it works")
       }
     return ( 
-        <Grid>
+        <Grid direction="row"
+        justify="center"
+        alignItems="center">
+        <div    style={{marginTop: '140px'}}>
           <Grid>
           <Button className={classes.button} onClick={handleReturn}> Return </Button>
           </Grid>
           <Grid className={classes.text}>
               <h3> 
-                  Throughtout history women have been essential to
+                  Although women have been essential to
                   answer
-                  questions that have, and are shaping, our civilization. 
-                  And for most that time, they have been snubbed by history books.
+                  questions that have, and are shaping, our civilization throughout history. 
+                  They have also been notably snubbed by history books.
                   Get to know some 
                   of the women who have contributed to 
                   STEM fields, get inspired and Find Your Science
@@ -52,6 +55,7 @@ const StemProvides = () => {
             <Grid>
               <Button className={classes.button} onClick={handleClick}> Continue </Button>
             </Grid>
+            </div>
         </Grid>
      );
 }

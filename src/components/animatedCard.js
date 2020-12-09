@@ -20,7 +20,8 @@ const useStyles = makeStyles(theme =>({
       color: "white",
     },
     media: {
-      height: 300
+      height: 300,
+      padding: 10,
     },
   }));
 
