@@ -26,7 +26,7 @@ const useStyles = makeStyles({
     color: "white",
   },
   ul: {
-    marginBottom: 50,
+    marginBottom: 70,
     "& .MuiPaginationItem-root": {
       color: "#ffffff",
     },

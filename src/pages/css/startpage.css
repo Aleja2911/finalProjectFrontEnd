@@ -1,19 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
 
-
-.startPage{
+.startPage {
   /* background-image: url(../Images/starnight.png); */
   display: flex;
   color: white;
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-family: 'Playfair Display', serif;
-  height:100vh;
-};
+  font-family: "Playfair Display", serif;
+  /* height:100vh; */
+}
 
-
-.particles{
+.particles {
   position: fixed;
   right: 0;
   right: 0;

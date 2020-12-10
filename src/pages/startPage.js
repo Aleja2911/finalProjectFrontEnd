@@ -26,12 +26,21 @@ const StartPage = () => {
     console.log("it works");
   };
   return (
-    <Grid container direction="column" className="startPage">
+    // <Grid container direction="column" className="startPage">
+    <Grid container direction="column" style={{ 
+      display: "flex",
+      color: "white",
+      justifyContent: "center",
+      alignItems: "center",
+      textAlign: "center",
+      fontFamily: '"Playfair Display", serif',
+      height:"100vh"
+      }}>
+
       <h1 className={classes.text}> Find Your Science </h1>
 
       <Button className={classes.button} onClick={handleClick}>
-        {" "}
-        Click to Start{" "}
+        Click to Start
       </Button>
     </Grid>
   );
