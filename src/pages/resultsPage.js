@@ -46,10 +46,7 @@ const ResultsPage = ({
   open,
   setselectedScientist,
   selectedScientist,
-  setselectedPrograms,
-  scientistsPerPage,
-  setCurrentPage,
-  currentPage
+  setselectedPrograms
 }) => {
   const history = useHistory();
   const classes = useStyles();
@@ -93,15 +90,12 @@ const ResultsPage = ({
     <Grid style={{ width: '100%' }}>
       <NavBar />
 <div style={{marginTop: '140px'}}>
-    <Grid container direction="row" justify="center" alignItems="center">
-      <Grid container
-  direction="row"
-  justify="center"
-  alignItems="center" item xs={12} >
+    <Grid container direction="row" justify="center" alignItems="center" xs={12}>
+      <Grid  item xs={12} >
       <h1> Meet the Women </h1>
       </Grid>
       
-      <Grid container direction="row" justify="center" alignItems="center" className={classes.grid}>
+      <Grid item xs={12} className={classes.grid}>
         {filteredScientists && handlePagination(filteredScientists)
             .map((sq, i) => {
               return (
@@ -165,7 +159,7 @@ const ResultsPage = ({
             })}
       
          </Grid>    
-         <Grid container
+         <Grid item container
           direction="row"
           justify="center"
           alignItems="center" xs={12}>
@@ -182,3 +176,8 @@ export default ResultsPage;
 
 /* <Paginations scientistQuestions={scientistQuestions.length} paginate={paginate} scientistsPerPage={scientistsPerPage}   /> */
 //<Pagination count={Math.floor(scientistQuestions.length / 10)} onChange={(e, page) => setPage(page)} />
+
+// container
+//   direction="row"
+//   justify="center"
+//   alignItems="center"

@@ -25,22 +25,40 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       background: "#CD9C22",
     },
+    [theme.breakpoints.down("xs")] : {
+      maxWidth: "2.5em",
+      height: "3.5em",
+      marginTop: "1em",
+      padding: "none",
+      },
     marginRight: theme.spacing(2),
     marginTop: theme.spacing(1),
     marginBottom: theme.spacing(1),
     marginLeft: theme.spacing(-1),
   },
+  returnResults: {
+    color: "white",
+    [theme.breakpoints.down("xs")] : {
+      width: "100%",
+      height: "3em",
+      padding: "none",
+      },
+  },
   typography: {
     fontFamily: "Playfair Display",
+    [theme.breakpoints.down("xs")] : {
+      fontSize: "1.5em",
+      },
+    
   },
   typographyButton: {
     fontFamily: "Playfair Display",
     fontSize: 14,
+    [theme.breakpoints.down("xs")] : {
+      fontSize: "0.75em",
+      }
   },
-  returnResults: {
-    
-    color: "white",
-  },
+  
 }));
 
 const NavBar = () => {
@@ -74,7 +92,8 @@ const NavBar = () => {
   return (
     <AppBar className={classes.bar}>
       <Toolbar>
-        <Grid>
+      <Grid container sm={12} >
+        <Grid item xs={12} s={2} sm={2} >
           <Button
             className={classes.returnResults}
             onClick={handleReturnResults}
@@ -84,15 +103,15 @@ const NavBar = () => {
             </Typography>
           </Button>
         </Grid>
-        <Grid container direction="row" justify="flex-end" alignItems="center" >
-         
+        <Grid  container direction="row" justify="flex-end" alignItems="center" xs={12} s={10} sm={10} >
+         <Grid xs={3} s={2} sm={2}>
           <Button variant="outlined" className={classes.button} onClick={handleReturn}>
            <Typography className={classes.typographyButton}>
             return to Questions
             </Typography>
           </Button>
-          
-          
+          </Grid>
+          <Grid xs={3} s={2} sm={2}>
             <Button
               className={classes.button}
               variant="outlined"
@@ -102,25 +121,26 @@ const NavBar = () => {
                 About Us
               </Typography>
             </Button>
-          
+            </Grid>
 
-          
+            <Grid xs={3} s={2} sm={2}>
             <Button
               className={classes.button}
               variant="outlined"
-              onClick={handleClickMissing}
             >
               <Typography className={classes.typographyButton}>
                 Missing a Scientists?
               </Typography>
             </Button>
-          
+            </Grid>
+            <Grid xs={3} s={2} sm={2}>
             <Button className={classes.button} variant="outlined">
               <Typography className={classes.typographyButton}>
                 Missing a university program?
               </Typography>
             </Button>
-          
+          </Grid>
+          </Grid>
         </Grid>
       </Toolbar>
     </AppBar>

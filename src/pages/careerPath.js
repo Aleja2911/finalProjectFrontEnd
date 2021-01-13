@@ -92,15 +92,13 @@ const useStyles = makeStyles((theme) => ({
         <Grid style={{ width: '100%' }}>
         <NavBar />
         <div    style={{marginTop: '180px'}}>
-        <Grid direction="row"
+        <Grid container direction="row"
                         justify="center"
-                        alignItems="center">
+                        alignItems="center" xs={12}>
+         <Grid  item xs={12} >
                         <h2>These University Programs match {selectedScientist.first_name} {selectedScientist.last_name}'s career </h2>
          </Grid>
-        <Grid container
-  direction="row"
-  justify="center"
-  alignItems="center">
+        <Grid item xs={12}>
             {filteredScientistPrograms && handlePagination(filteredScientistPrograms)
                 .map((sp, i) => {
                 return (
@@ -108,7 +106,7 @@ const useStyles = makeStyles((theme) => ({
                    
                     <Grid direction="row"
                         justify="center"
-                        alignItems="center" xs={7}>
+                        alignItems="center" item xs={12} sm={10}>
                         <Accordion
                         expanded={expanded === i}
                         onChange={handleChange(i)}
@@ -154,6 +152,7 @@ const useStyles = makeStyles((theme) => ({
                         alignItems="center">
                 <Pagination classes={{ ul: classes.ul }} count={Math.floor(filteredScientistPrograms.length / 5)} color="primary" onChange={(e,p) => setPage(p)} />
                 </Grid>
+        </Grid>
         </Grid>
         </div>
        <Footer />

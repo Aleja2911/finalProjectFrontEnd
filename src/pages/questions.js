@@ -8,29 +8,40 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from "@material-ui/core/styles";
 // import ScientistCard from '../components/scientist'
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   button: {
     color: "white",
     margin: 2,
+    width: 430,
     background: "none",
     "&:hover": {
       background: "#CD9C22",
     },
-    width: 430,
+    [theme.breakpoints.down("xs")] : {
+      width: "80%",
+      height: "auto",
+      padding: 0,
+      marginRight: "0.5em"
+      },
   },
   typography: {
      fontFamily: "Playfair Display",
      fontSize: '0.9rem',
   },
   questionsList: {
-   
+    [theme.breakpoints.down("xs")] : {
+      width: "80%",
+      height: "auto",
+      padding: 0,
+      marginRight: "0.5em"
+      },
     
   },
   returnbutton: {
     margin: 50,
     color: "white",
   },
-});
+}));
 
 const Questions = ({ questions, scientistQuestions, setselectedQuestion }) => {
   const history = useHistory();
@@ -49,7 +60,7 @@ const Questions = ({ questions, scientistQuestions, setselectedQuestion }) => {
   };
 
   return (
-    <Grid container  className="questions">
+    <Grid container direction="row" justify="center" alignItems="center" className="questions" xs={12}>
       <Grid item xs={12} className={classes.returnbutton}>
         <h2> What Would You Like To Do Today? </h2>
       </Grid>
