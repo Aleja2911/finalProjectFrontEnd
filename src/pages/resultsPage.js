@@ -34,7 +34,7 @@ const useStyles = makeStyles({
   media: {
     height: 200,
   },
-  grid:{
+  results:{
     height: "100%",
   }
 });
@@ -95,7 +95,7 @@ const ResultsPage = ({
       <h1> Meet the Women </h1>
       </Grid>
       
-      <Grid item xs={12} className={classes.grid}>
+      <Grid item xs={12} className={classes.results}>
         {filteredScientists && handlePagination(filteredScientists)
             .map((sq, i) => {
               return (

@@ -15,7 +15,11 @@ const useStyles = makeStyles((theme) => ({
         boxShadow: "0 3px 5px 2px",
         top: 'auto',
         bottom: 0,
-       
+        [theme.breakpoints.down("xs")]: {
+            position: "relative",
+            marginTop: 40,
+            boxShadow: "0",
+          },
     },
 
     iconsAnchor: {
@@ -56,7 +60,7 @@ const history = useHistory();
         const classes = useStyles();
 
         return (
-          <Grid container spacing={1}>
+          <Grid container spacing={1} xs={12}>
             
          
             <AppBar className={classes.footerContainer} position="fixed" >
